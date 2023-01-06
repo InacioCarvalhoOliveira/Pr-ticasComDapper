@@ -1,75 +1,30 @@
-using System;
 using Microsoft.Data.SqlClient;
 using Dapper;
 using PraticasComDapper.PraticascomDapperNet7;
-using System.Data;
 
-namespace PraticasComDapper.PraticasComDapperNet7
+namespace PraticasComDapper.PraticasComDappernet7
 {
-    class Program 
+    public class ComandosSql
     {
-        static void Main(string[] args)
+        private int ListCategories { get; set; }
+        private int CreateCategory { get; set; }
+        private int UpdateCategory { get; set; }
+        private int DeleteCategory { get; set; }
+        private int DeleteProcedure { get; set; }
+        private int DoLike { get; set; }
+        public ComandosSql(){}
+        public ComandosSql(int listCategories, int createCategory, int updateCategory, int deleteCategory, int deleteProcedure, int doLike)
         {
-            
-            #region trabalhando com banco usando Dapper
-            
-            const string connectionString = "Server=localhost,1433;Database=balta;User ID=sa;Password='212@@skd77ss*1!';";
-            
-            try
-            {              
-                using (var connection = new SqlConnection(connectionString))
-                {
-                    do
-                    {
-                        MenuOption(connection); 
-                    } while (true);
-                }
-            }
-            catch (System.Exception e)
-            {
-               Console.WriteLine("Ops... ocorreu algum erro -->> \n" + e);
-            }          
-            
-            #endregion
-        }
-
-        private static void MenuOption(SqlConnection connection)
-        {
-            
-            Console.WriteLine("\nwhat do you want to realize?");
-            Console.WriteLine("\n1- List categories\n2- Create catrgory\n3- Update Category");
-            Console.WriteLine("4- Delete Category\n5- Delete Procedure\n6- Do Like");
-            Console.WriteLine("Wich Query do You want to do:");
-            var num = int.Parse(Console.ReadLine());
-            switch (num)
-            {
-                case 1:
-                    ListCategories(connection);
-                    break;
-                case 2:
-                    CreateCategory(connection);
-                    break;
-                case 3:
-                    UpdateCategory(connection);
-                    break;
-                case 4:
-                    DeleteCategory(connection);
-                    break;
-                case 5:
-                    DeleteProcedure(connection);
-                    break;
-                case 6:
-                    DoLike(connection);
-                    break;
-                default:
-                    Console.WriteLine("It Ends Here... tku");
-                    break;
-            }    
-        }
-
-        #region conexao como banco
-
-        static void ListCategories(SqlConnection connection)
+            ListCategories = listCategories;
+            CreateCategory = createCategory;
+            UpdateCategory = updateCategory;
+            DeleteCategory = deleteCategory;
+            DeleteProcedure = deleteProcedure;
+            DoLike = doLike;
+        }      
+       
+        #region Listing all Categories
+        public static void listCategories(SqlConnection connection)
         {
             var categories = connection.Query<Category>("SELECT [ID], [TITLE], [ORDER] FROM [CATEGORY]");
             Console.WriteLine("\nListing Categories");
@@ -79,7 +34,9 @@ namespace PraticasComDapper.PraticasComDapperNet7
                System.Console.WriteLine($"{items.Id} - {items.Title}");
             }
         }
-        static void CreateCategory(SqlConnection connection)
+        #endregion
+        #region Creating One New Category Row
+        public static void createCategory(SqlConnection connection)
         {
             var category = new Category();
             category.Id = Guid.NewGuid();
@@ -107,7 +64,9 @@ namespace PraticasComDapper.PraticasComDapperNet7
             Console.WriteLine($"{category.Order}/{category.Description}/{category.Featured}");        
             Console.WriteLine($"\n{insertRows} Registros Inseridos");   
         }
-        static void UpdateCategory(SqlConnection connection)
+        #endregion
+        #region Updating One Category Row
+        public static void updateCategory(SqlConnection connection)
         {
             var updateQuery = @"UPDATE [CATEGORY] 
             SET [Title]=@title, [Url]=@url,[Summary]=@summary, [Order]=@order,
@@ -126,7 +85,9 @@ namespace PraticasComDapper.PraticasComDapperNet7
             Console.WriteLine("------------------------------------");  
             System.Console.WriteLine($"{updateRows} registos atualizados");
         }
-        static void DeleteCategory(SqlConnection connection)
+        #endregion
+        #region Deleting one Category Row
+        public static void deleteCategory(SqlConnection connection)
         {
             var deleteQuery = @" DELETE FROM [CATEGORY] WHERE [Id]= @id";
             var deleteRows = connection.Execute(deleteQuery, new
@@ -140,18 +101,21 @@ namespace PraticasComDapper.PraticasComDapperNet7
             Console.WriteLine("------------------------------------");
             System.Console.WriteLine($"{deleteRows} linha removida");
         }
-        static void DeleteProcedure(SqlConnection connection)
+        #endregion
+        #region Deleting an Procedure 
+        public static void deleteProcedure(SqlConnection connection)
         {
             var prc = "spDeleteStudent";
             var pars = new {StudentId = "2a8dfd4d-cf67-4bc9-bd40-b99e1f17324f"};
-            var rows = connection.Execute(prc,pars,commandType: CommandType.StoredProcedure);
+            var rows = connection.Execute(prc,pars,commandType: System.Data.CommandType.StoredProcedure);
             Console.WriteLine("\nUsing an Procedure");
             Console.WriteLine("------------------------------------");
             Console.WriteLine(rows);
             
         }
-
-        static void DoLike(SqlConnection connection)
+        #endregion 
+        #region Doing de Like filter 
+        public static void doLike(SqlConnection connection)
         {
             var query = "SELECT * FROM [CATEGORY] WHERE [TITLE] LIKE @exp";
             var itens = connection.Query<Category>(query,new{
@@ -168,7 +132,6 @@ namespace PraticasComDapper.PraticasComDapperNet7
             }
 
         }
-        
-        #endregion   
+        #endregion 
     }
 }
