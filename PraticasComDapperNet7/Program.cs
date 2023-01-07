@@ -22,7 +22,7 @@ namespace PraticasComDapper.PraticasComDapperNet7
                     do
                     {
                          Console.WriteLine("\nwhat do you want to realize?");
-                         Console.WriteLine("\n1- List categories\n2- Create catrgory\n3- Update Category");
+                         Console.WriteLine("\n1- List categories\n2- Create category\n3- Update Category");
                          Console.WriteLine("4- Delete Category\n5- Delete Procedure\n6- Do Like");
                          Console.WriteLine("Wich Query do You want to do:");
                          var num = int.Parse(Console.ReadLine());
@@ -56,7 +56,7 @@ namespace PraticasComDapper.PraticasComDapperNet7
             }
             catch (System.Exception e)
             {
-               Console.WriteLine("Ops... ocorreu algum erro -->> \n" + e);
+               Console.WriteLine("Ops...An Error Has Occurred-->> \n" + e);
             }          
             
            

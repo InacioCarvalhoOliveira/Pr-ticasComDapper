@@ -27,7 +27,7 @@ namespace PraticasComDapper.PraticasComDappernet7
         public static void listCategories(SqlConnection connection)
         {
             var categories = connection.Query<Category>("SELECT [ID], [TITLE], [ORDER] FROM [CATEGORY]");
-            Console.WriteLine("\nListing Categories");
+            Console.WriteLine("\nListing Category");
             foreach (var items in categories)
             {
                Console.WriteLine("------------------------------------");             
@@ -58,11 +58,11 @@ namespace PraticasComDapper.PraticasComDappernet7
                 category.Description,
                 category.Featured
             }); 
-            Console.WriteLine("\nCreating  Categorie");
+            Console.WriteLine("\nCreating Category");
             Console.WriteLine("------------------------------------");    
             Console.WriteLine($"{category.Id}/{category.Title}/{category.Url}/{category.Summary}/");
             Console.WriteLine($"{category.Order}/{category.Description}/{category.Featured}");        
-            Console.WriteLine($"\n{insertRows} Registros Inseridos");   
+            Console.WriteLine($"\n{insertRows} data Inserted");   
         }
         #endregion
         #region Updating One Category Row
@@ -81,9 +81,9 @@ namespace PraticasComDapper.PraticasComDappernet7
                 Description = "Aprenda SecOps",
                 Featured = true
             });
-            Console.WriteLine("\nUpdating Categorie");
+            Console.WriteLine("\nUpdating Category");
             Console.WriteLine("------------------------------------");  
-            System.Console.WriteLine($"{updateRows} registos atualizados");
+            System.Console.WriteLine($"{updateRows} Data Updated");
         }
         #endregion
         #region Deleting one Category Row
@@ -97,9 +97,9 @@ namespace PraticasComDapper.PraticasComDappernet7
                 Id = ("1dfa7731-b21d-423e-b83a-e1b07058f7bf")
             }
             );
-            Console.WriteLine("\nDeleting Categorie");
+            Console.WriteLine("\nDeleting Category");
             Console.WriteLine("------------------------------------");
-            System.Console.WriteLine($"{deleteRows} linha removida");
+            System.Console.WriteLine($"{deleteRows} Row Deleted");
         }
         #endregion
         #region Deleting an Procedure 
