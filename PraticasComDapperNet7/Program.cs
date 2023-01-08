@@ -1,7 +1,6 @@
 using System;
 using Microsoft.Data.SqlClient;
 using Dapper;
-using PraticasComDapper.PraticascomDapperNet7;
 using System.Data;
 using PraticasComDapper.PraticasComDappernet7;
 
