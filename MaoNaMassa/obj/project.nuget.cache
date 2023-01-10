@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "fmVBxnox7zzwj/HZZQm6IGKUTJ8by2HFW0SR+KknzRmZD6UNtwmSgelG9qx92N4J60jam7tb98hTIrVwBrqebg==",
+  "dgSpecHash": "7auY9d6LCgHQzwLI+MWGeC1SS38qFDtjP382llucwsmGcJ8pXifw3zcsq2mUsLjJ50cEKtmFj2ZNKNe43EtJWg==",
   "success": true,
   "projectFilePath": "/media/inacio/HDD/Cursos/DOTNET/Console/Local/UsingDapper/PraticasComDapper/MaoNaMassa/MaoNaMassa.csproj",
   "expectedPackageFiles": [
     "/home/inacio/.nuget/packages/dapper/2.0.90/dapper.2.0.90.nupkg.sha512",
+    "/home/inacio/.nuget/packages/dapper.contrib/2.0.78/dapper.contrib.2.0.78.nupkg.sha512",
     "/home/inacio/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/home/inacio/.nuget/packages/microsoft.data.sqlclient/2.1.3/microsoft.data.sqlclient.2.1.3.nupkg.sha512",
     "/home/inacio/.nuget/packages/microsoft.data.sqlclient.sni.runtime/2.1.1/microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
