@@ -7,10 +7,8 @@ namespace PraticasComDapper.MaoNaMassa
         public static void Main(string[] args)
         {
             DbConnection con = new DbConnection();
-            con.connection();
-                   
+            con.connection();         
         }
-        
     }
 }
 

@@ -1,6 +1,4 @@
-
 using Dapper.Contrib.Extensions;
-
 namespace PraticasComDapper.MaoNaMassa.Models
 {
     [Table("[User]")]
