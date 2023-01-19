@@ -15,20 +15,16 @@ namespace PraticasComDapper.MaoNaMassa.Imersao
         }
         public  void connection()
         {
-            const string database = "blog";
-            const string host = "localhost";
-            const string port = "1433";
-            const string userName = "sa";
-            const string password = "212@@skd77ss*1!";            
-            const string connectionString = $"Server={host},{port};Database={database};User ID={userName};Password='{password}';";
+            const string dtb = "blog";           
+            const string connectionString = $"Server=localhost,1433;Database={dtb};User ID=sa;Password='212@@skd77ss*1!';";
 
             try
             {               
                 // TODO: Try to do the connection with server and database 
                 using(var connection = new SqlConnection(connectionString))
                 {
-                    Console.WriteLine($"Connection with Database {database} has been successfully!");
-                    var checkDataBase = connection.Query($"USE {database} ");
+                    Console.WriteLine($"Connection with Database {dtb} has been successfully!");
+                    var checkDataBase = connection.Query($"USE {dtb} ");
                     
                     #region ReadQuery                   
                         //    var readuser = connection.Get<User>(1);
