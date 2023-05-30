@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using Microsoft.Data.SqlClient;
 using PraticasComDapper.MaoNaMassa.Models;
 using PraticasComDapper.MaoNaMassa.Repositories;
@@ -17,15 +17,13 @@ namespace PraticasComDapper.MaoNaMassa
                 Console.WriteLine($"Connection with Database {dbName} has been successfully!");  
                 //User user = new User();
                 ReadTable(connection); 
-               // ReadAllTable(connection);
-
+               //ReadAllTable(connection);
             }
             catch (System.Exception e)
             {
                 Console.WriteLine("Connection failed, error:"+e);    
             }
         }
-
         private static void ReadTable(SqlConnection connection)
         {
             var repository = new UserRepository(connection);
@@ -38,19 +36,14 @@ namespace PraticasComDapper.MaoNaMassa
         {
             var repository = new UserRepository(connection);
             //var User user = new User();
-            var users = repository.Create;
-                         
-                 
+            var users = repository.Create;                   
                 // user.Name = "Inacio Oliveira",
                 // user.Email = "inacio.oliveira@email.com",
                 // user.PasswordHash = "123456",
                 // user.Bio = "Navegante nas aguas do Dotnet",
                 // user.Image = "IMAGE",
-                // user.Slug = "https://inacio\Sobre Mim"
-                
-        }
-
-        
+                // user.Slug = "https://inacio\Sobre Mim"                
+        }        
     }
 }
 
