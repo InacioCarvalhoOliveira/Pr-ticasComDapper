@@ -42,8 +42,7 @@ namespace PraticasComDapper.MaoNaMassa.Imersao
                         //     connection.Insert<User>(createuser);                         
                     #endregion  
                     #region UpdateQuery                        
-                        //     var updateUser = new User(){
-                                
+                        //     var updateUser = new User(){                                
                         //         Id = 6,
                         //         Name = "Elis Regina",
                         //         PasswordHash = "HASH",
@@ -55,20 +54,17 @@ namespace PraticasComDapper.MaoNaMassa.Imersao
                         //     connection.Update<User>(updateUser);
                     #endregion
                     #region DeleteQuery
-                        //     var deleteUser = new User(){
-                                
+                        //     var deleteUser = new User(){                                
                         //         Id = 6,   
                         //     };
                         //     connection.Delete<User>(deleteUser);                    
                     #endregion
-
                 }             
             }
             catch (System.Exception e)
             {
                  // TODO: Error Response                 
-                 Console.WriteLine("Connection failed, error:"+e);
-                
+                 Console.WriteLine("Connection failed, error:"+e);                
             }
         }
     }
