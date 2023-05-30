@@ -24,7 +24,6 @@ namespace PraticasComDapper.MaoNaMassa.Repositories
         {
             throw new NotImplementedException();
         }
-
         internal object Get(object connectionString)
         {
             throw new NotImplementedException();
