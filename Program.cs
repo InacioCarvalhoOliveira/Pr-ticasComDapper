@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Data.SqlClient;
 using Dapper;
 using PraticasComDapper.Models;
@@ -10,13 +10,12 @@ namespace UsingDapper
         static void Main(string[] args)
         {
             #region trabalhando banco na forma padrão 
-
             // //foi criada uma string de conexão informando os dados da Base de dados
             // const string connectionString = "Server=localhost,1433;Database=balta;User ID=sa;Password='212@@skd77ss*1!';";
             // //qualquer manipulação envolvendo a lib "Microsoft.Data.SqlClient" foi realizada dentro do try  
             // try
             // {
-            //     //
+            //     /InacioCarvalhoOliveira/RefactoredKataCode/
             //     using(var connection = new SqlConnection(connectionString))
             //     {
             //         Console.WriteLine("conectado ao banco de dados!");
@@ -94,7 +93,6 @@ namespace UsingDapper
 
             //     Console.WriteLine("ocorreu algum erro -->> " + e);
             // }
-
             #endregion
             #region trabalhando com banco usando Dapper
             
@@ -118,7 +116,6 @@ namespace UsingDapper
             #endregion
         }
         #region conexao como banco
-
         static void ListCategories(SqlConnection connection)
         {
             var categories = connection.Query<Category>("SELECT [ID], [TITLE], [ORDER] FROM [CATEGORY]");
@@ -149,9 +146,7 @@ namespace UsingDapper
                 category.Description,
                 category.Featured
             });            
-            System.Console.WriteLine($"{insertRows} Registros Inseridos");
-
-           
+            System.Console.WriteLine($"{insertRows} Registros Inseridos");         
         }
         static void UpdateCategory(SqlConnection connection)
         {
@@ -167,9 +162,6 @@ namespace UsingDapper
                 Order = 9,
                 Description = "Aprenda SecOps",
                 Featured = true
-
-
-
             });  
             System.Console.WriteLine($"{updateRows} registos atualizados");
         }
@@ -181,11 +173,9 @@ namespace UsingDapper
                 //Id = ("52100872-02b4-4f17-9654-bffd4e8bf9c9"),
                 //Id = ("bd9eb6e2-7cad-4eae-8e4c-d75bdbfd1498")
                 Id = ("1dfa7731-b21d-423e-b83a-e1b07058f7bf")
-            }
-            );
+            });
             System.Console.WriteLine($"{deleteRows} linha removida");
-        }
-        
+        }  
         #endregion   
     }
 }
