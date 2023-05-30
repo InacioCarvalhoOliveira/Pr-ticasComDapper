@@ -21,8 +21,7 @@ namespace PraticasComDapper.PraticasComDappernet7
             DeleteCategory = deleteCategory;
             DeleteProcedure = deleteProcedure;
             DoLike = doLike;
-        }      
-       
+        }    
         #region Listing all Categories
         public static void listCategories(SqlConnection connection)
         {
@@ -95,8 +94,7 @@ namespace PraticasComDapper.PraticasComDappernet7
                 //Id = ("52100872-02b4-4f17-9654-bffd4e8bf9c9"),
                 //Id = ("bd9eb6e2-7cad-4eae-8e4c-d75bdbfd1498")
                 Id = ("1dfa7731-b21d-423e-b83a-e1b07058f7bf")
-            }
-            );
+            });
             Console.WriteLine("\nDeleting Category");
             Console.WriteLine("------------------------------------");
             System.Console.WriteLine($"{deleteRows} Row Deleted");
@@ -110,18 +108,15 @@ namespace PraticasComDapper.PraticasComDappernet7
             var rows = connection.Execute(prc,pars,commandType: System.Data.CommandType.StoredProcedure);
             Console.WriteLine("\nUsing an Procedure");
             Console.WriteLine("------------------------------------");
-            Console.WriteLine(rows);
-            
+            Console.WriteLine(rows);            
         }
         #endregion 
         #region Doing de Like filter 
         public static void doLike(SqlConnection connection)
         {
             var query = "SELECT * FROM [CATEGORY] WHERE [TITLE] LIKE @exp";
-            var itens = connection.Query<Category>(query,new{
-                
+            var itens = connection.Query<Category>(query,new{                
                 exp = "Frontend"
-
             });
             Console.WriteLine("Using The <LIKE> Command");
             foreach (var item in itens)
@@ -130,7 +125,6 @@ namespace PraticasComDapper.PraticasComDappernet7
                 Console.WriteLine(item.Title);
                 break;                
             }
-
         }
         #endregion 
     }
