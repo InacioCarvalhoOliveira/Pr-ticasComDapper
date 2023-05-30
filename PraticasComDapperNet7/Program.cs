@@ -10,10 +10,8 @@ namespace PraticasComDapper.PraticasComDapperNet7
     {
         static void Main(string[] args)
         {            
-           ComandosSql call = new ComandosSql();
-            
-            const string connectionString = "Server=localhost,1433;Database=balta;User ID=sa;Password='212@@skd77ss*1!';";
-            
+           ComandosSql call = new ComandosSql();            
+            const string connectionString = "Server=localhost,1433;Database=balta;User ID=sa;Password='212@@skd77ss*1!';";            
             try
             {              
                 using (var connection = new SqlConnection(connectionString))
@@ -47,7 +45,7 @@ namespace PraticasComDapper.PraticasComDapperNet7
                                  break;
                              default:
                                  Console.WriteLine("It Ends Here... tku");
-                                 break;
+                             break;
                         }     
                     } 
                     while (true);
@@ -56,14 +54,7 @@ namespace PraticasComDapper.PraticasComDapperNet7
             catch (System.Exception e)
             {
                Console.WriteLine("Ops...An Error Has Occurred-->> \n" + e);
-            }          
-            
-           
-        }
-
-   
-
-       
-        
+            }       
+        }  
     }
 }
