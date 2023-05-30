@@ -22,7 +22,6 @@ namespace PraticasComDapper.MaoNaMassa.Repositories
             => _connection.Get<User>(id);
 
         public void Create(User user)
-            => _connection.Insert<User>(user);
-    
+            => _connection.Insert<User>(user);    
     } 
 }
